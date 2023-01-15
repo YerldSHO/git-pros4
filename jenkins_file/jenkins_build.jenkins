@@ -8,7 +8,9 @@ pipeline {
         stage("create docker images") {
             steps {
                 echo " ============== docker build =================="
-                sh "docker build -t project ."
+                dir ('web'){
+                	sh "docker build -t project ."
+                }
                 }
             }
         }
