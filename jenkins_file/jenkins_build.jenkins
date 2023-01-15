@@ -7,8 +7,10 @@ pipeline {
     stages {
         stage("create docker images") {
             steps {
-                echo " ============== docker build =================="
+                echo " ============== docker build start =================="
                 sh "dir"
+                sh "docker-compose build"
+                echo " ============== docker build stop =================="
                 }
             }
         }
