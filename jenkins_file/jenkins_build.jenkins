@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo " ============== docker build start =================="
                 sh "dir"
-                sh "docker-compose build"
+                sh "kubectl apply -f ."
                 echo " ============== docker build stop =================="
                 }
             }
