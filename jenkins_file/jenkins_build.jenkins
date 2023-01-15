@@ -1,5 +1,5 @@
 #!groovy
-// Check ub1 properties
+// Run docker build
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -11,13 +11,14 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("First step") {
+        stage("create docker images") {
             steps {
-                echo " =====start building image ======"
-                dir ('web'){
-                  sh 'docker build .'
+                echo " ============== docker login =================="
+                dir ('docker/toolbox'){
+                	sh 'docker build . '
+                       }
                 }
             }
         }
-     }
 }
+
