@@ -20,6 +20,7 @@ pipeline {
             steps{
 		script{
             		kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
+            		kubernetesDeploy(configs: "db-pod.yaml", kubeconfigId: "kubernetes")
             	}  
             }
         }
