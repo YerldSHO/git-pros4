@@ -23,7 +23,7 @@ pipeline {
         stage('k8s build'){
             steps{
             	sqript{
-            		kubernetesDeploy(configs: "deployment.yaml", kubeconfigID: "kubernetes")
+            		kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
             	}
             }
         }
