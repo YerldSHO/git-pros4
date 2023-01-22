@@ -24,7 +24,7 @@ pipeline {
             steps{
             	sqript{
             	
-            	   kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes")  
+            	   kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")  
             	}
           }
         }
