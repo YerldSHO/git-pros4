@@ -17,7 +17,7 @@ pipeline {
                 echo " ============== DockerHub Push start =================="
                 sh "docker login -u yerldsho -p Ademonid32165468"
                 sh "docker push yerldsho/app1:latest"
-                echo " ============== DockerHub Push stop =================="
+                echo " ============== DockerHub Push stop ==================="
             }
         }
         stage('k8s build'){
