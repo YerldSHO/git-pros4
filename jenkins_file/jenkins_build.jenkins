@@ -22,11 +22,13 @@ pipeline {
         }
         stage('k8s build'){
             steps{
+            withCredentials([string(credentialsId: 'mytoken', variable: '11314bdf7c9bfd4786845be71fc6e2bb8d')]){
                 echo " ============== k8s build start ==================="
-                sh "kubectl apply -f db-pod.yaml --token 70b2949d794a4721994343cf0649ce03"
+                sh "kubectl apply -f db-pod.yaml"
                 sh "kubectl apply -f deployment.yaml"
                 sh "kubectl port-forward my-web 8000:8000"
                 echo " ============== k8s build stop =================="
+                }
             }
         }
     }
