@@ -18,10 +18,14 @@ pipeline {
         }
         stage('k8s build'){
             steps{
-            	script{
-            		kubernetesDeploy(configs: "web-deployment.yaml", kubeconfigId: "kubernetes")
-            	}  
-          }
+            	withCredentials([string(credentialsId: 'kibernetes')]) {
+                	echo " ============== k8s build start ==================="
+                	sh "kubectl apply -f db-pod.yaml"
+                	sh "kubectl apply -f deployment.yaml"
+                	sh "kubectl port-forward my-web 8000:8000"
+                	echo " ============== k8s build stop =================="
+                }
+            }
         }
    }
 }
