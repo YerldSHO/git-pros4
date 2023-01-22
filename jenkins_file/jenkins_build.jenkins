@@ -19,6 +19,7 @@ pipeline {
                 sh "docker push yerldsho/app1:latest"
                 echo " ============== DockerHub Push stop =================="
             }
+        }
         stage('k8s build'){
             steps{
                 echo " ============== k8s build start ==================="
