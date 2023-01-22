@@ -9,4 +9,4 @@ WORKDIR /PR
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 ENTRYPOINT ["python", "manage.py"]
-CMD ["makemigrations"]
+CMD ["runserver"]

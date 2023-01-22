@@ -5,14 +5,28 @@ properties([disableConcurrentBuilds()])
 pipeline {
     agent any
     stages {
-        stage("create docker images") {
+        stage("Build Docker Images") {
             steps {
                 echo " ============== docker build start =================="
-                sh "dir"
-                sh "docker-compose build"
+                sh "docker build -t app ."
                 echo " ============== docker build stop =================="
                 }
             }
+        stage('DockerHub Push'){
+            steps{
+                echo " ============== DockerHub Push start =================="
+                sh "docker login -u yerldsho -p Ademonid32165468"
+                sh "docker push yerldsho/app1:latest"
+                echo " ============== DockerHub Push stop =================="
+            }
+        stage('k8s build'){
+            steps{
+                echo " ============== k8s build start =================="
+                sh "kubectl apply -f ."
+                sh "kubectl port-forward my-web 8000:8000"
+                echo " ============== k8s build stop =================="
+            }
         }
+    }
 }
 
