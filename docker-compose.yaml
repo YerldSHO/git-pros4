@@ -2,8 +2,9 @@ version: '3'
 
 services:
   web:
-    build: ./web
-    command: python manage.py runserver 0.0.0.0:8000
+    image: yerldsho/app1:latest
+    #build: ./web
+    #command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/web_django
     ports:
@@ -22,3 +23,4 @@ services:
     restart: on-failure
     volumes:
       - ./db_django:/var/lib/mysql
+
