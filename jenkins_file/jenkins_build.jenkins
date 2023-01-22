@@ -19,7 +19,6 @@ pipeline {
         stage('k8s build'){
             steps{
 		script{
-            		kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
             		kubernetesDeploy(configs: "db-pod.yaml", kubeconfigId: "kubernetes")
             	}  
             }
