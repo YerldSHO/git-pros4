@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage("Build Docker Images") {
             steps {
-                echo " ============== docker build start =================="
+                echo " ============== docker build start ==================="
                 sh "docker build -t yerldsho/app1 ."
-                echo " ============== docker build stop =================="
+                echo " ============== docker build stop ==================="
                 }
             }
         stage('DockerHub Push'){
