@@ -7,4 +7,4 @@ spec:
      - name: app
        image: yerldsho/app1:latest
        ports: 
-         - containerPort: 55555
+         - containerPort: 8000
