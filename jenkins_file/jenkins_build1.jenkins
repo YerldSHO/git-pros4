@@ -18,16 +18,13 @@ pipeline {
         }
         stage('k8s build'){
             steps{
-            	container ('kubectl'){
             		withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
                 		echo " ============== k8s build start ==================="
                 		sh "kubectl apply -f db-pod.yaml"
                 		sh "kubectl apply -f deployment.yaml"
                 		sh "kubectl port-forward my-web 8000:8000"
                 		echo " ============== k8s build stop =================="
-                	} 
-            	}
-		
+                	} 	
             }
         }
    }
