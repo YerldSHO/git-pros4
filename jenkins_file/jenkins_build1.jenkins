@@ -11,7 +11,7 @@ pipeline {
         stage('DockerHub Push'){
             steps{
                 echo " ============== DockerHub Push start =================="
-                sh "docker login -u yerldsho -p Ademonid32165468"
+                sh "docker login -u yerldsho -p PASSWORD"
                 sh "docker push yerldsho/app1:latest"
                 echo " ============== DockerHub Push stop ==================="
             }
